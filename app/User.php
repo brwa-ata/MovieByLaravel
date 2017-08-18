@@ -28,4 +28,14 @@ class User extends Authenticatable
     {
         return $this->belongsTo('App\Role');
     }
+
+    public function isAdmin()
+    {
+        if ($this->role->name  == 'admin')
+        {
+            return true;
+        }
+
+        return false;
+    }
 }
