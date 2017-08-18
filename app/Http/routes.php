@@ -16,13 +16,10 @@ use App\SeasonOfTvShow;
 
 Route::auth();
 
-Route::get('/home', 'HomeController@index');
-
-Route::get('/admin', function (){
-    return view('admin.index');
-});
+//Route::get('/home', 'HomeController@index');
 
 
+/*  INDEX ROUTES  */
 Route::get('/', 'IndexController@index');
 Route::get('/film/{id}', ['as' => 'film.show', 'uses' => 'IndexController@show']);
 Route::get('/tvshow/{id}', ['as' => 'tvshow.show', 'uses' => 'IndexController@tvshow']);
@@ -32,3 +29,14 @@ Route::get('/episode/{id}', ['as' => 'episode.show', 'uses' => 'IndexController@
 
 Route::get('/upcoming' , ['as' => 'upcoming' , 'uses' => 'IndexController@upcoming']);
 Route::get('/nowplaying' , ['as' => 'nowplaying' , 'uses' => 'IndexController@nowplaying']);
+
+/* ADMIN ROUTES  */
+Route::get('/admin', function (){
+    return view('admin.index');
+});
+
+Route::group(['midleware' => 'admin']  , function (){
+
+    Route::resource('admin/film' , 'AdminFilmController');
+
+});

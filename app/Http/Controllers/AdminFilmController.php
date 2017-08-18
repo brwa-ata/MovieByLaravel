@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Film;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 use App\Http\Requests;
 
@@ -15,7 +17,10 @@ class AdminFilmController extends Controller
      */
     public function index()
     {
-        //
+        $films = Film::all();
+
+
+        return view('admin.film.index' , compact('films'));
     }
 
     /**
