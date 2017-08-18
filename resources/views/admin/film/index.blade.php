@@ -26,7 +26,7 @@
                 @foreach($films as $film)
                     <tr>
 
-                        <td>{{$film->title}}</td>
+                        <td><a href="{{ route('admin.film.edit' , $film->id) }}">{{$film->title}}</a></td>
                         <td>{{$film->released_date}}</td>
                         <td>{{$film->revenue}}</td>
                         <td>{{$film->budget}}</td>

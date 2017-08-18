@@ -63,7 +63,14 @@ class AdminFilmController extends Controller
      */
     public function edit($id)
     {
-        //
+        $films = Film::findOrFail($id);
+        $genres = $films->definedGenre;
+        $languages = $films->language;
+        $companies = $films->productionCompany;
+        $countries = $films->productionCountry;
+
+        return view('admin.film.edit' , compact('films' , 'genres' , 'languages' ,  'companies' , 'countries'));
+
     }
 
     /**
@@ -75,7 +82,7 @@ class AdminFilmController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return 'ok';
     }
 
     /**
@@ -86,6 +93,12 @@ class AdminFilmController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $film = Film::findOrFail($id);
+
+//        unlink(public_path() . $film->image);
+
+        $film->delete();
+
+        return redirect('/admin/film');
     }
 }
