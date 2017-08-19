@@ -40,6 +40,11 @@ class Film extends Model
         return $this->belongsToMany('App\DefinedGenre' ,'genres' ,'film_id' ,'defined_genre_id');
     }
 
+    public function genres()
+    {
+        return $this->hasMany('App\Genre');
+    }
+
     public function filmTrailer()
     {
         return $this->hasMany('App\FilmTrailer');
