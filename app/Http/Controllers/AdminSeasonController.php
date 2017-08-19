@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\InsertSeasonRequest;
+use App\Http\Requests\UpdateSeasonRequest;
 use App\SeasonOfTvShow;
 use App\TvShow;
 use Illuminate\Http\Request;
@@ -68,7 +69,7 @@ class AdminSeasonController extends Controller
         $tvshow = TvShow::findOrFail($id);
         $tv_show_id = $tvshow->id;
 
-        $seasons= SeasonOfTvShow::all()->where('tv_show_id' , $tv_show_id)->first()->get();
+        $seasons= $tvshow->seasons;
 
         return view('admin.tvshow.season.index' , compact('seasons' , 'tvshow'));
     }
@@ -81,7 +82,9 @@ class AdminSeasonController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.tvshow.season.edit');
+        $season = SeasonOfTvShow::findOrFail($id);
+        $tvshows = TvShow::lists('title' , 'id')->all();
+        return view('admin.tvshow.season.edit' , compact('season' , 'tvshows'));
     }
 
     /**
@@ -91,9 +94,30 @@ class AdminSeasonController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateSeasonRequest $request, $id)
     {
-        //
+        $the_season = SeasonOfTvShow::findOrFail($id);
+
+        $update_season = $request->all();
+
+        if ($file = $request->file('image'))
+        {
+            $name = time() . $file->getClientOriginalName();
+            $file-> move('images' , $name);
+            $update_season['image'] =$name;
+        }
+
+        $the_season->update($update_season);
+
+        $tvshow = $the_season->tvShow;
+        $tv_show_id = $tvshow->id;
+
+        $seasons= $tvshow->seasons;
+
+        return view('admin.tvshow.season.index' , compact('seasons' , 'tvshow'));
+
+
+
     }
 
     /**
