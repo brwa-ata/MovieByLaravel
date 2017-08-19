@@ -138,7 +138,7 @@
                                 <a href="{{ route('admin.tv_show.index') }}">All TvShows</a>
                             </li>
                             <li>
-                                <a href="#">Create TvShow</a>
+                                <a href="{{ route('admin.tv_show.create') }}">Create TvShow</a>
                             </li>
                             <li>
                                 <a href="#">Season <span class="fa arrow"></span></a>
@@ -147,7 +147,7 @@
                                         <a href="#">All Seasons</a>
                                     </li>
                                     <li>
-                                        <a href="#">Create Season</a>
+                                        <a href="{{ route('admin.tvshow.season.create') }}">Create Season</a>
                                     </li>
                                 </ul>
                                 <!-- /.nav-third-level -->

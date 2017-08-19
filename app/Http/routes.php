@@ -40,4 +40,6 @@ Route::group(['midleware' => 'admin']  , function (){
     Route::resource('admin/film' , 'AdminFilmController');
     Route::resource('admin/tv_show' , 'AdminTvShowController');
 
+    Route::resource('admin/tvshow/season' , 'AdminSeasonController');
+
 });
