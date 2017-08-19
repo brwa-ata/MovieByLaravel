@@ -51,7 +51,7 @@ class AdminFilmController extends Controller
 
         $insert_film = $request->except('language_name', 'country_name', 'company_name', 'genres');
 
-        $file = $file = $request->file('image');
+        $file = $request->file('image');
         $name = time() . $file->getClientOriginalName();
         $file-> move('images' , $name);
         $insert_film['image'] = $name;
