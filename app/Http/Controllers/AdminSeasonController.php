@@ -65,7 +65,12 @@ class AdminSeasonController extends Controller
      */
     public function show($id)
     {
-        //
+        $tvshow = TvShow::findOrFail($id);
+        $tv_show_id = $tvshow->id;
+
+        $seasons= SeasonOfTvShow::all()->where('tv_show_id' , $tv_show_id)->first()->get();
+
+        return view('admin.tvshow.season.index' , compact('seasons' , 'tvshow'));
     }
 
     /**
@@ -76,7 +81,7 @@ class AdminSeasonController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('admin.tvshow.season.edit');
     }
 
     /**
