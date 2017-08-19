@@ -29,7 +29,8 @@ class FilmRequest extends Request
             'released_date'  => 'required' ,
             'language_name'  => 'required' ,
             'company_name'  => 'required' ,
-            'country_name'  => 'required'
+            'country_name'  => 'required' ,
+
 
         ];
     }

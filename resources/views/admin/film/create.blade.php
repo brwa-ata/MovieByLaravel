@@ -22,6 +22,11 @@
         </div>
 
         <div class="form-group">
+                {!! Form::label('duration' , 'Duration:') !!}
+                {!! Form::number('duration' , null , ['class'=>'form-control' , 'placeholder' => 'duration in minute']) !!}
+        </div>
+
+        <div class="form-group">
             {!! Form::label('revenue' , 'Revenue:') !!}
             {!! Form::number('revenue' , null , ['class'=>'form-control']) !!}
         </div>
