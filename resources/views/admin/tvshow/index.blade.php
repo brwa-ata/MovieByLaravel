@@ -17,7 +17,7 @@
             <tbody>
                 @foreach($tvshows as  $tvshow)
                     <tr>
-                        <td>{{ $tvshow->title }}</td>
+                        <td><a href="{{ route('admin.tv_show.edit' , $tvshow->id) }}">{{ $tvshow->title }}</a></td>
                         <td><img class="img-responsive" width="50%" src="{{ $tvshow->image }}" alt=""></td>
 
                         {{-- GENRE --}}
