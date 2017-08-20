@@ -46,8 +46,6 @@
         </div>
         <!-- /.navbar-header -->
 
-
-
         <ul class="nav navbar-top-links navbar-right">
 
 
@@ -100,88 +98,101 @@
                         <a href="/admin"> Dashboard</a>
                     </li>
 
-                    <li>
-                        <a href="#">Users <span class="caret"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="/users">All Users</a>
-                            </li>
+                    @if(Auth::user()->user_role == 1)
+                        <li>
+                            <a href="#">Users <span class="caret"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>  <a href="/users">All Users</a>  </li>
+                                <li> <a href="/users/create">Create User</a>   </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
 
-                            <li>
-                                <a href="/users/create">Create User</a>
-                            </li>
+                        <li>
+                            <a href="#"> Movies <span class="caret"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{{ route('admin.film.index') }}">All Movies</a>
+                                </li>
 
-                        </ul>
-                        <!-- /.nav-second-level -->
-                    </li>
+                                <li>
+                                    <a href="{{ route('admin.film.create') }}">Create Movies</a>
+                                </li>
 
-                    <li>
-                        <a href="#"> Movies <span class="caret"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="{{ route('admin.film.index') }}">All Movies</a>
-                            </li>
-
-                            <li>
-                                <a href="{{ route('admin.film.create') }}">Create Movies</a>
-                            </li>
-
-                        </ul>
-                        <!-- /.nav-second-level -->
-                    </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
 
 
-                    <li>
-                        <a href="#">TV Show <span class="caret"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="{{ route('admin.tv_show.index') }}">All TvShows</a>
-                            </li>
-                            <li>
-                                <a href="{{ route('admin.tv_show.create') }}">Create TvShow</a>
-                            </li>
-                            <li>
-                                <a href="#">Season <span class="fa arrow"></span></a>
-                                <ul class="nav nav-third-level">
-                                    <li>
-                                        <a href="#">All Seasons</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ route('admin.tvshow.season.create') }}">Create Season</a>
-                                    </li>
-                                </ul>
-                                <!-- /.nav-third-level -->
-                            </li>
-                            <li>
-                                <a href="#">Episode <span class="fa arrow"></span></a>
-                                <ul class="nav nav-third-level">
-                                    <li>
-                                        <a href="#">All Episodes</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Create Episod</a>
-                                    </li>
-                                </ul>
-                                <!-- /.nav-third-level -->
-                            </li>
-                        </ul>
-                        <!-- /.nav-second-level -->
-                    </li>
+
+                        <li>
+                            <a href="#">TV Show <span class="caret"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{{ route('admin.tv_show.index') }}">All TvShows</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('admin.tv_show.create') }}">Create TvShow</a>
+                                </li>
+                                <li>
+                                    <a href="#">Season <span class="fa arrow"></span></a>
+                                    <ul class="nav nav-third-level">
+                                        <li>
+                                            <a href="#">All Seasons</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('admin.tvshow.season.create') }}">Create Season</a>
+                                        </li>
+                                    </ul>
+                                    <!-- /.nav-third-level -->
+                                </li>
+                                <li>
+                                    <a href="#">Episode <span class="fa arrow"></span></a>
+                                    <ul class="nav nav-third-level">
+                                        <li>
+                                            <a href="#">All Episodes</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('admin.tvshow.season.episode.create') }}">Create Episode</a>
+                                        </li>
+                                    </ul>
+                                    <!-- /.nav-third-level -->
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
 
 
-                    <li>
-                        <a href="#">Media <span class="caret"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="/media">All Media</a>
-                            </li>
+                        <li>
+                            <a href="#">Media <span class="caret"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="/media">All Media</a>
+                                </li>
 
-                            <li>
-                                <a href="">Upload Media</a>
-                            </li>
-                        </ul>
-                        <!-- /.nav-second-level -->
-                    </li>
+                                <li>
+                                    <a href="">Upload Media</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                    @else
+                        <li>
+                            <a href="">Watch Lists </a>
+                        </li>
+
+                        <li>
+                            <a href="">Favorites</a>
+                        </li>
+
+                        <li>
+                            <a href="">Rating & Review </a>
+                        </li>
+
+                        <li>
+                            <a href="">Lists </a>
+                        </li>
+                    @endif
 
                 </ul>
 
@@ -196,36 +207,36 @@
 
 
 
-    <div class="navbar-default sidebar" role="navigation">
-        <div class="sidebar-nav navbar-collapse">
-            <ul class="nav" id="side-menu">
-                <li>
-                    <a href="/profile"><i class="fa fa-dashboard fa-fw"></i>Profile</a>
-                </li>
+    {{--<div class="navbar-default sidebar" role="navigation">--}}
+        {{--<div class="sidebar-nav navbar-collapse">--}}
+            {{--<ul class="nav" id="side-menu">--}}
+                {{--<li>--}}
+                    {{--<a href="/profile"><i class="fa fa-dashboard fa-fw"></i>Profile</a>--}}
+                {{--</li>--}}
 
 
-                <li>
-                    <a href="#"><i class="fa fa-wrench fa-fw"></i> Posts<span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a href="">All Posts</a>
-                        </li>
+                {{--<li>--}}
+                    {{--<a href="#"><i class="fa fa-wrench fa-fw"></i> Posts<span class="fa arrow"></span></a>--}}
+                    {{--<ul class="nav nav-second-level">--}}
+                        {{--<li>--}}
+                            {{--<a href="">All Posts</a>--}}
+                        {{--</li>--}}
 
-                        <li>
-                            <a href="">Create Post</a>
-                        </li>
+                        {{--<li>--}}
+                            {{--<a href="">Create Post</a>--}}
+                        {{--</li>--}}
 
-                    </ul>
-                    <!-- /.nav-second-level -->
-                </li>
+                    {{--</ul>--}}
+                    {{--<!-- /.nav-second-level -->--}}
+                {{--</li>--}}
 
 
 
-            </ul>
+            {{--</ul>--}}
 
-        </div>
+        {{--</div>--}}
 
-    </div>
+    {{--</div>--}}
 
 </div>
 
