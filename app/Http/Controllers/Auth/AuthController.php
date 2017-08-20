@@ -21,6 +21,8 @@ class AuthController extends Controller
     |
     */
 
+
+
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
     /**
@@ -66,6 +68,7 @@ class AuthController extends Controller
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'user_role' => $data['user_role'],
             'password' => bcrypt($data['password']),
         ]);
     }

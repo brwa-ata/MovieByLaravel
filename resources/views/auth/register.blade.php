@@ -24,6 +24,24 @@
                             </div>
                         </div>
 
+
+
+
+                        <div class="form-group{{ $errors->has('user_role') ? ' has-error' : '' }}">
+                            <div class="col-md-6">
+                                <input id="name" type="hidden" class="form-control" name="user_role" value="2">
+
+                                @if ($errors->has('user_role'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('user_role') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+
+
+
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="email" class="col-md-4 control-label">E-Mail Address</label>
 
