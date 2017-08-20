@@ -52,9 +52,12 @@ class AdminSeasonController extends Controller
         $file->move('images' , $name);
         $insert_season['image'] = $name;
 
-        SeasonOfTvShow::create($insert_season);
+        $the_season = SeasonOfTvShow::create($insert_season);
 
-        return redirect('/admin');
+        $tvshow = $the_season->tvShow;
+        $seasons= $tvshow->seasons;
+
+        return view('admin.tvshow.season.index' , compact('seasons' , 'tvshow'));
 
     }
 
