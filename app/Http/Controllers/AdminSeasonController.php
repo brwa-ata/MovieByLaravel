@@ -110,8 +110,6 @@ class AdminSeasonController extends Controller
         $the_season->update($update_season);
 
         $tvshow = $the_season->tvShow;
-        $tv_show_id = $tvshow->id;
-
         $seasons= $tvshow->seasons;
 
         return view('admin.tvshow.season.index' , compact('seasons' , 'tvshow'));
@@ -128,6 +126,20 @@ class AdminSeasonController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $the_season  = SeasonOfTvShow::findOrFail($id);
+
+        $season_image = $the_season->image;
+
+        unlink( public_path() . $season_image);
+
+        $the_season->delete($season_image);
+        $the_season->delete();
+
+        $tvshow = $the_season->tvShow;
+        $seasons= $tvshow->seasons;
+
+        return view('admin.tvshow.season.index' , compact('seasons' , 'tvshow'));
+
+
     }
 }
