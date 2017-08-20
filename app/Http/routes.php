@@ -31,12 +31,11 @@ Route::get('/upcoming' , ['as' => 'upcoming' , 'uses' => 'IndexController@upcomi
 Route::get('/nowplaying' , ['as' => 'nowplaying' , 'uses' => 'IndexController@nowplaying']);
 
 /* ADMIN ROUTES  */
-Route::get('/admin', function (){
-    return view('admin.index');
-});
+
 
 Route::group(['midleware' => 'admin']  , function (){
 
+    Route::get('/admin', 'AdminController@index');
     Route::resource('admin/film' , 'AdminFilmController');
     Route::resource('admin/tv_show' , 'AdminTvShowController');
     Route::resource('admin/tvshow/season' , 'AdminSeasonController');
