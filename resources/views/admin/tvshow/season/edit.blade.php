@@ -7,7 +7,7 @@
             <h1>Edit Season</h1>
         </div>
         <div class="col-md-6">
-            <br><a class="btn btn-primary" href=""> See All Episodes  >> </a>
+            <br><a class="btn btn-primary" href="{{ route('admin.tvshow.season.episode.show' , $season->id) }}"> See All Episodes  >> </a>
         </div>
     </div>
     <hr>
