@@ -78,7 +78,7 @@ class Film extends Model
 
     public  function user_list()
     {
-        return $this->hasMany('App\List');
+        return $this->hasMany('App\UserList');
     }
 
     public  function rate()
