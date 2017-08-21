@@ -17,7 +17,7 @@
             <tbody>
                 <?php $film = \App\Film::findOrFail($favorite->film_id ); ?>
                 <tr>
-                    <td width="30%"><a href="">{{ $film->title }}</a></td>
+                    <td width="30%"><a href="{{ route('films.show' , $film->id)  }}">{{ $film->title }}</a></td>
                     <td><img class="img-responsive img-rounded" width="50%" src="{{ $film->image }}" alt=""></td>
                     <td width="20%">{{ $favorite->created_at->diffForHumans() }}</td>
                 </tr>
