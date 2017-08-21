@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
+use  Carbon\Carbon;
 
 class UserFavoriteController extends Controller
 {
@@ -18,7 +19,11 @@ class UserFavoriteController extends Controller
      */
     public function index()
     {
-        //
+       $user =  Auth::user();
+
+       $favorites = $user->favorite;
+
+        return view('admin.user.favorite' , compact('favorites'));
     }
 
     /**
