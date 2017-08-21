@@ -65,8 +65,12 @@ class AdminEpisodeController extends Controller
         DB::insert("INSERT INTO episode_of_seasons (episode_name, episode_number ,season_of_tv_show_id ,released_date ,episode_revenue , episode_budget ,duration ,episode_overview ,image)
                         VALUES ('$episode_name' , '$episode_number' , $season_of_tv_show_id , '$released_date' , $episode_revenue , $episode_budget , $duration , '$episode_overview' , '$name')");
 
+        /*   TO GET THA LAST RECORD IN THE DATABASE*/
+         $last_episode = EpisodeOfSeason::latest()->first();
 
-       DB::insert("INSERT INTO languages (language_name , episode_of_season_id) VALUES ('$insert_language' , $season_of_tv_show_id)");
+         $episode_of_season_id = $last_episode->id;
+
+       DB::insert("INSERT INTO languages (language_name , episode_of_season_id) VALUES ('$insert_language' , $episode_of_season_id)");
 
         $seasons = SeasonOfTvShow::findOrFail($season_of_tv_show_id);
         $tvshows = $seasons->tvShow;
