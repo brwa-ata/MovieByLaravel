@@ -7,6 +7,14 @@
 
             <h3>{{ $films->title }} {{  $films->released_date}}</h3>
             <img class="img-responsive" src="{{ $films->image  }}" alt=""><hr>
+
+            @include('includes.favorite_and_watchlist')
+
+            @include('includes.rating')
+
+        </div>
+        <div class="col-md-8">
+            <hr>
             <h3> Overview :   {{ $films->overview  }}</h3><hr>
             <h3> Revenue :   ${{ $films->revenue  }} million</h3><hr>
             <h3> Budget : ${{ $films->budget  }}</h3><hr>

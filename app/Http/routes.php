@@ -21,11 +21,15 @@ Route::auth();
 
 /*  INDEX ROUTES  */
 Route::get('/', 'IndexController@index');
-Route::get('/film/{id}', ['as' => 'film.show', 'uses' => 'IndexController@show']);
+Route::get('/films/{id}', ['as' => 'films.show', 'uses' => 'IndexController@show']);
 Route::get('/tvshow/{id}', ['as' => 'tvshow.show', 'uses' => 'IndexController@tvshow']);
 Route::get('/tvshow/{id}/season', ['as' => 'season_of_tvshow.show', 'uses' => 'IndexController@season']);
 Route::get('/season/{id}/episode', ['as' => 'episode_of_season.show', 'uses' => 'IndexController@episode']);
 Route::get('/episode/{id}', ['as' => 'episode.show', 'uses' => 'IndexController@episodeInfo']);
+
+
+Route::get('favorite_and_watchlist' , function (){});
+Route::get('/films/rating' , ['as' => 'rating'] , function (){});
 
 Route::get('/upcoming' , ['as' => 'upcoming' , 'uses' => 'IndexController@upcoming']);
 Route::get('/nowplaying' , ['as' => 'nowplaying' , 'uses' => 'IndexController@nowplaying']);
@@ -40,5 +44,10 @@ Route::group(['midleware' => 'admin']  , function (){
     Route::resource('admin/tv_show' , 'AdminTvShowController');
     Route::resource('admin/tvshow/season' , 'AdminSeasonController');
     Route::resource('admin/tvshow/season/episode' , 'AdminEpisodeController');
+
+    /*  USER ROUTES  */
+
+    Route::resource('user/favorite' , 'UserFavoriteController');
+    Route::resource('user/watchlist' , 'UserWatchlistController');
 
 });
