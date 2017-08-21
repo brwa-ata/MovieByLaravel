@@ -13,7 +13,12 @@
             <h3>Revenue :  ${{ $episodes->episode_revenue != 0 ? $episodes->episode_revenue : 'Unknown' }}</h3>
             <h3>Budget :  ${{ $episodes->episode_budget}} </h3>
             <h3>Duration :  {{ $episodes->duration}} min</h3>
-            {{--<h3>Language  :  {{ $episodes->language->language_name}}</h3>--}}
+
+            <h3>Language :
+                @foreach($languages as $language)
+                    {{ $language->language_name  }}
+                @endforeach
+            </h3><hr>
 
             <h3>Production Company : </h3>
             <h3>

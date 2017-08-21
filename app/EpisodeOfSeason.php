@@ -28,7 +28,7 @@ class EpisodeOfSeason extends Model
 
     public  function language()
     {
-        return $this->hasOne('App\Language' , 'episode_of_season_id');
+        return $this->hasMany('App\Language' , 'episode_of_season_id');
     }
 
     public function episodeTrailer()
