@@ -12,7 +12,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'user_role','password',
     ];
 
     /**
@@ -28,6 +28,28 @@ class User extends Authenticatable
     {
         return $this->belongsTo('App\Role');
     }
+
+    public  function watchlist()
+    {
+        return $this->hasMany('App\WatchList');
+    }
+
+    public  function favorite()
+    {
+        return $this->hasMany('App\Favorite');
+    }
+
+    public  function user_list()
+    {
+        return $this->hasMany('App\List');
+    }
+
+    public  function rate()
+    {
+        return $this->hasMany('App\Rating');
+    }
+
+
 
     public function isAdmin()
     {
