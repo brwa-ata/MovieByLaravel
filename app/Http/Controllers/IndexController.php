@@ -88,10 +88,20 @@ class IndexController extends Controller
     public function nowplaying()
     {
         $now = Carbon::today();
-        $films = Film::all()->where('released_date' , $now);
+        $week =Carbon::now()->addWeek();
 
-        return $films;
+        $films = Film::whereBetween('released_date' , [$now, $week])->get();
+
+        return view('startpage.nowplaying' , compact('films'));
     }
+
+    public function popular()
+    {
+        $films = Film::where('popularity' , '>' , 20)->get();
+
+        return view('startpage.popular' , compact('films'));
+    }
+
 }
 
 
