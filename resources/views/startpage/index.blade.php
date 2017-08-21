@@ -53,7 +53,7 @@
                         </li>
 
                         <li>
-                            <a href="nowplaying">Now Playing</a>
+                            <a href="{{ route('nowplaying') }}">Now Playing</a>
                         </li>
                     </ul>
                 </li>

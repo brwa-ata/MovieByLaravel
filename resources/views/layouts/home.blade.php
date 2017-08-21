@@ -43,7 +43,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Movies <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="popular"> Popular</a>
+                            <a href="{{ route('popular') }}"> Popular</a>
                         </li>
                         <li>
                             <a href="toprated"> Top Rated</a>
@@ -53,7 +53,7 @@
                         </li>
 
                         <li>
-                            <a href="nowplaying"> Now Playing</a>
+                            <a href="{{ route('nowplaying') }}"> Now Playing</a>
                         </li>
                     </ul>
                 </li>
