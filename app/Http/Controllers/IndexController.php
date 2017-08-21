@@ -10,6 +10,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class IndexController extends Controller
@@ -24,6 +25,8 @@ class IndexController extends Controller
 
     public function show($id)
     {
+        $user = Auth::user();
+
         $films = Film::findOrFail($id);
         $companies = $films->productionCompany;
         $countries= $films->productionCountry;
@@ -31,7 +34,7 @@ class IndexController extends Controller
         $languages = $films->language;
 
 
-        return view('startpage.show' , compact('tvshows','films','title','companies' , 'countries' , 'genres' , 'languages' ));
+        return view('startpage.show' , compact('user','films','companies' , 'countries' , 'genres' , 'languages' ));
     }
 
     public function tvshow($id)
