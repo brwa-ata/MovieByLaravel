@@ -33,6 +33,7 @@ Route::get('/films/rating' , ['as' => 'rating'] , function (){});
 
 Route::get('/upcoming' , ['as' => 'upcoming' , 'uses' => 'IndexController@upcoming']);
 Route::get('/nowplaying' , ['as' => 'nowplaying' , 'uses' => 'IndexController@nowplaying']);
+Route::get('/popular' , ['as' => 'popular' , 'uses' => 'IndexController@popular']);
 
 /* ADMIN ROUTES  */
 

@@ -43,7 +43,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Movies <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="popular"> Popular</a>
+                            <a href="{{ route('popular') }}"> Popular</a>
                         </li>
                         <li>
                             <a href="toprated">Top Rated</a>
@@ -62,17 +62,17 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">TV Shows <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="tvshow_category/popular"> Popular</a>
+                            <a href=""> Popular</a>
                         </li>
                         <li>
-                            <a href="tvshow_category.php?category=toprate"> Top Rated</a>
+                            <a href=""> Top Rated</a>
                         </li>
                         <li>
-                            <a href="tvshow_category.php?category=ontv">On TV</a>
+                            <a href="">On TV</a>
                         </li>
 
                         <li>
-                            <a href="tvshow_category.php?category=airingtoday">Airing Today</a>
+                            <a href="t">Airing Today</a>
                         </li>
                     </ul>
                 </li>
