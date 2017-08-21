@@ -87,6 +87,7 @@
 
             @foreach($lists as $list)
 
+
                 {!! Form::open(['method'=>'GET' , 'action'=>['UserListController@show' , $list->listname] ])  !!}
 
                 <div class="row"><h3>{{$list->listname}}</h3></div>
@@ -95,9 +96,18 @@
                 <div class="form-group">
                     {!! Form::submit('View Films', ['class'=>'btn btn navbar-btn']) !!}
                 </div>
-                <hr>
+
                 {!! Form::close()  !!}
 
+                {{--  DELETE A LIST --}}
+                {!! Form::open(['method'=>'DELETE' , 'action'=>['UserListController@destroy' , $list->listname] ])  !!}
+
+                    <div class="form-group">
+                        {!! Form::submit('Delete List', ['class'=>'btn btn-danger']) !!}
+                    </div>
+                {!! Form::close()  !!}
+
+                <hr>
             @endforeach
 
         </div>

@@ -130,8 +130,19 @@ class UserListController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($listname)
     {
-        //
+
+
+        DB::delete("DELETE FROM user_lists Where listname = '$listname' ");
+
+        $user = Auth::user();
+        $user_id = $user->id;
+        $films = Film::all();
+
+        $lists = UserList::where('user_id' , $user_id)->groupBy('listname')->get();
+        return view('admin.user.list.index' , compact('films' , 'lists'));
+
+
     }
 }
