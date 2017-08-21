@@ -75,6 +75,9 @@ class IndexController extends Controller
     /**
      *
      */
+
+    /* FILM"S FUNCTIONS */
+
     public function upcoming()
     {
         $now = Carbon::today();
@@ -100,6 +103,35 @@ class IndexController extends Controller
         $films = Film::where('popularity' , '>' , 20)->get();
 
         return view('startpage.popular' , compact('films'));
+    }
+
+
+
+    /*    EPISODE's  FUNCTIONS */
+
+    public function ontv()
+    {
+        $today = Carbon::today();
+
+        $episodes = EpisodeOfSeason::where('released_date', $today)->get();
+
+        return view('startpage.ontv' , compact('episodes'));
+    }
+
+    public function airingToday()
+    {
+        $now = Carbon::today();
+
+        $episodes = EpisodeOfSeason::where('released_date' , '>' , $now)->get();
+
+        return view('startpage.airingtoday' , compact('episodes'));
+    }
+
+    public function popularTvshow()
+    {
+        $tvshows = TvShow::where('popularity' , '>' , 10)->get();
+
+        return view('startpage.popular_tvshow' , compact('tvshows'));
     }
 
 }

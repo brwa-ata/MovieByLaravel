@@ -3,6 +3,11 @@
 @section('content')
 
     @if($tvshows)
+
+        <?php
+            $tvshows->increment('popularity');
+        ?>
+
         <div class="col-md-8">
 
             <h3>{{  $tvshows->title }}</h3>

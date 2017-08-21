@@ -62,17 +62,17 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">TV Shows <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href=""> Popular</a>
+                            <a href="{{ route('popular.tvshow') }}"> Popular</a>
                         </li>
                         <li>
                             <a href=""> Top Rated</a>
                         </li>
                         <li>
-                            <a href="">On TV</a>
+                            <a href="{{ route('ontv') }}">On TV</a>
                         </li>
 
                         <li>
-                            <a href="t">Airing Today</a>
+                            <a href="{{ route('airingtoday') }}">Airing Today</a>
                         </li>
                     </ul>
                 </li>
