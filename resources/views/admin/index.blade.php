@@ -163,26 +163,31 @@
                         </li>
 
 
-                        <li>
-                            <a href="#">Media <span class="caret"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="/media">All Media</a>
-                                </li>
 
-                                <li>
-                                    <a href="">Upload Media</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
+                        <li>
+                            <a href="{{ route('user.watchlist.index') }}">Watch Lists </a>
                         </li>
+
+                        <li>
+                            <a href="{{ route('user.favorite.index') }}">Favorites</a>
+                        </li>
+
+                        <li>
+                            <a href="">Rating & Review </a>
+                        </li>
+
+                        <li>
+                            <a href="">Lists </a>
+                        </li>
+
+
                     @else
                         <li>
-                            <a href="">Watch Lists </a>
+                            <a href="{{ route('user.watchlist.index') }}">Watch Lists </a>
                         </li>
 
                         <li>
-                            <a href="">Favorites</a>
+                            <a href="{{ route('user.favorite.index') }}">Favorites</a>
                         </li>
 
                         <li>

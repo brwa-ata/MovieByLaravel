@@ -6,6 +6,7 @@ use App\WatchList;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
 
 class UserWatchlistController extends Controller
 {
@@ -16,7 +17,11 @@ class UserWatchlistController extends Controller
      */
     public function index()
     {
-        //
+        $user =  Auth::user();
+
+        $watchlists = $user->watchlist;
+
+        return view('admin.user.watchlist' , compact('watchlists'));
     }
 
     /**
