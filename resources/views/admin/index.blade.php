@@ -195,7 +195,7 @@
                         </li>
 
                         <li>
-                            <a href="">Lists </a>
+                            <a href="{{ route('user.lists.index') }}">Lists </a>
                         </li>
                     @endif
 

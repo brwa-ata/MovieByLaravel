@@ -49,5 +49,6 @@ Route::group(['midleware' => 'admin']  , function (){
 
     Route::resource('user/favorite' , 'UserFavoriteController');
     Route::resource('user/watchlist' , 'UserWatchlistController');
+    Route::resource('user/lists' , 'UserListController');
 
 });
