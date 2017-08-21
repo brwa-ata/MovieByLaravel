@@ -3,6 +3,11 @@
 @section('content')
 
     @if($companies && $countries && $genres  && $languages && $films)
+
+        <?php
+                $films->increment('popularity');
+        ?>
+
         <div class="col-md-8">
 
             <h3>{{ $films->title }} {{  $films->released_date}}</h3>
