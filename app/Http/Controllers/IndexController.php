@@ -79,10 +79,10 @@ class IndexController extends Controller
     {
         $now = Carbon::today();
 
-        $films = Film::all()->where('released_date' , ' <= ' , $now);
+        $films = Film::where('released_date' , '>' , $now)->get();
 
-        echo $films;
-       // echo $films->released_date;
+        return view('startpage.upcoming' , compact('films'));
+
     }
 
     public function nowplaying()
@@ -90,7 +90,7 @@ class IndexController extends Controller
         $now = Carbon::today();
         $films = Film::all()->where('released_date' , $now);
 
-        echo $films;
+        return $films;
     }
 }
 
