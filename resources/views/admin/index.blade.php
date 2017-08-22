@@ -17,6 +17,7 @@
     <link href="{{asset('css/adm.css')}}" rel="stylesheet">
 
 
+    @yield('styles')
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -49,28 +50,8 @@
         <ul class="nav navbar-top-links navbar-right">
 
 
-            {{--<!-- /.dropdown -->--}}
-            {{--<li class="dropdown">--}}
-                {{--<a class="dropdown-toggle" data-toggle="dropdown" href="#">--}}
-                    {{--<i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>--}}
-                {{--</a>--}}
-                {{--<ul class="dropdown-menu dropdown-user">--}}
-                    {{--<li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>--}}
-                    {{--</li>--}}
-                    {{--<li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>--}}
-                    {{--</li>--}}
-                    {{--<li class="divider"></li>--}}
-                    {{--<li><a href="{{ url('/logout') }}"><i class="fa fa-sign-out fa-fw"></i> Logout</a>--}}
-                    {{--</li>--}}
-                {{--</ul>--}}
-                {{--<!-- /.dropdown-user -->--}}
-            {{--</li>--}}
-            {{--<!-- /.dropdown -->--}}
-
 
         </ul>
-
-
 
 
 
@@ -119,6 +100,14 @@
                                     <a href="{{ route('admin.film.create') }}">Create Movies</a>
                                 </li>
 
+                                <li>
+                                    <a href="{{ route('episode.poster.create') }}">Upload Film's Poster</a>
+                                </li>
+
+                                <li>
+                                    <a href="{{ route('episode.photo.create') }}">Upload Film's Backdrop</a>
+                                </li>
+
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
@@ -152,9 +141,19 @@
                                         <li>
                                             <a href="#">All Episodes</a>
                                         </li>
+
                                         <li>
                                             <a href="{{ route('admin.tvshow.season.episode.create') }}">Create Episode</a>
                                         </li>
+
+                                        <li>
+                                            <a href="{{ route('episode.media.poster.create') }}">Upload Episode's Poster</a>
+                                        </li>
+
+                                        <li>
+                                            <a href="{{ route('episode.media.backdrop.create') }}">Upload Episode's Backdrop</a>
+                                        </li>
+
                                     </ul>
                                     <!-- /.nav-third-level -->
                                 </li>
@@ -177,7 +176,7 @@
                         </li>
 
                         <li>
-                            <a href="">Lists </a>
+                            <a href="{{ route('user.lists.index') }}">Lists </a>
                         </li>
 
 
@@ -210,39 +209,6 @@
 
 
 
-
-
-    {{--<div class="navbar-default sidebar" role="navigation">--}}
-        {{--<div class="sidebar-nav navbar-collapse">--}}
-            {{--<ul class="nav" id="side-menu">--}}
-                {{--<li>--}}
-                    {{--<a href="/profile"><i class="fa fa-dashboard fa-fw"></i>Profile</a>--}}
-                {{--</li>--}}
-
-
-                {{--<li>--}}
-                    {{--<a href="#"><i class="fa fa-wrench fa-fw"></i> Posts<span class="fa arrow"></span></a>--}}
-                    {{--<ul class="nav nav-second-level">--}}
-                        {{--<li>--}}
-                            {{--<a href="">All Posts</a>--}}
-                        {{--</li>--}}
-
-                        {{--<li>--}}
-                            {{--<a href="">Create Post</a>--}}
-                        {{--</li>--}}
-
-                    {{--</ul>--}}
-                    {{--<!-- /.nav-second-level -->--}}
-                {{--</li>--}}
-
-
-
-            {{--</ul>--}}
-
-        {{--</div>--}}
-
-    {{--</div>--}}
-
 </div>
 
 
@@ -274,7 +240,7 @@
 <script src="{{asset('js/adm.js')}}"></script>
 
 
-@yield('footer')
+@yield('scripts')
 
 
 </body>

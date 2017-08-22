@@ -53,8 +53,16 @@ Route::group(['midleware' => 'admin']  , function (){
     Route::resource('admin/tv_show' , 'AdminTvShowController');
     Route::resource('admin/tvshow/season' , 'AdminSeasonController');
     Route::resource('admin/tvshow/season/episode' , 'AdminEpisodeController');
+
+    /* THIS IS A ( FILM  )  PHOTO AND POST ROUTE  */
+    /*  I NAMED THEM WRONG */
     Route::resource('episode/photo' , 'EpisodePhotoController');
     Route::resource('episode/poster' , 'EpisodePosterController');
+
+
+    /*  THESE ARE THE EPISODE PHOTO AND POSTER ROUTE */
+    Route::resource('episode/media/backdrop' , 'EpisodeBackdropController');
+    Route::resource('episode/media/poster' , 'EpisodeMediaController');
 
 
     /*  USER ROUTES  */

@@ -67,11 +67,13 @@ class IndexController extends Controller
     public  function episodeInfo($episode_id)
     {
        $episodes = EpisodeOfSeason::findOrFail($episode_id);
+        $backdrops = $episodes->episodeImage;
+        $posters = $episodes->episodeImage;
        $languages = $episodes->language;
        $seasons = $episodes->seasonEpisode;
        $tvshows = $seasons->tvShow;
 
-        return view('startpage.episode_info' , compact('tvshows' , 'episodes' , 'languages'));
+        return view('startpage.episode_info' , compact('tvshows' , 'episodes' , 'languages' , 'backdrops' , 'posters'));
 
     }
 
