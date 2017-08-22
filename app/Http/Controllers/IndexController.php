@@ -28,13 +28,15 @@ class IndexController extends Controller
         $user = Auth::user();
 
         $films = Film::findOrFail($id);
+        $backdrops = $films->filmImage;
+        $posters = $films->filmImage;
         $companies = $films->productionCompany;
         $countries= $films->productionCountry;
         $genres  = $films->definedGenre;
         $languages = $films->language;
 
 
-        return view('startpage.show' , compact('user','films','companies' , 'countries' , 'genres' , 'languages' ));
+        return view('startpage.show', compact('user','films','companies','countries','genres','languages','backdrops','posters'));
     }
 
     public function tvshow($id)

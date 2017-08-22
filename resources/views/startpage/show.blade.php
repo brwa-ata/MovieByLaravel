@@ -50,6 +50,22 @@
             </h3><hr>
         </div>
 
+        <div class="row">
+            <div class="col-sm-7">
+                <h3 class="text-center">Backdrops</h3>
+                @foreach($backdrops as  $backdrop)
+                    <img class="img-responsive" src="{{ $backdrop->film_backdrop }}" alt="">
+                @endforeach
+            </div>
+
+            <div class="col-sm-5">
+                <h3>Posters</h3>
+                @foreach($posters as  $poster)
+                    <img class="img-responsive" src="{{ $poster->film_poster }}" alt="">
+                @endforeach
+            </div>
+        </div>
+
     @endif
 
 @stop
